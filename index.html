@@ -1,23 +1,137 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="th">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio นายอิสริยศ</title>
 
-    <title>Portfolio นายอิสริยศ</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Tahoma",sans-serif;
+}
 
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    /* พื้นหลังส้ม-น้ำเงิน */
+    background:linear-gradient(135deg,#ff8c00,#ffb347,#1e3c72,#2a5298);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* กล่องเมนู */
+.container{
+    text-align:center;
+    padding:40px;
+    width:420px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(0,0,0,.3);
+}
+
+h1{
+    color:white;
+    margin-bottom:30px;
+    font-size:42px;
+    text-shadow:0 0 10px white;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,.15);
+    padding:15px;
+    border-radius:12px;
+    font-size:20px;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,.4);
+}
+
+.menu a:hover{
+    transform:scale(1.07);
+    background:white;
+    color:#1e3c72;
+    box-shadow:0 0 20px white;
+}
+
+/* ดาว */
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 8px white;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-20px);
+        opacity:1;
+    }
+    to{
+        transform:translateY(110vh);
+        opacity:.2;
+    }
+}
+
+</style>
 </head>
 
-<body bgcolor="#CCFFFF">
+<body>
 
+<div class="container">
+    <h1>🌟 Portfolio 🌟</h1>
 
+    <div class="menu">
+        <a href="profile.html">👤 ประวัติส่วนตัว</a>
+        <a href="activities.html">🎯 กิจกรรม</a>
+        <a href="certificates.html">🏆 เกียรติบัตร</a>
+        <a href="contact.html">📞 ช่องทางการติดต่อ</a>
+    </div>
+</div>
 
-<h1>หน้าหลัก</h1>
+<script>
+// สร้างดาวตก
+for(let i=0;i<180;i++){
 
-<a href="profile.html">ประวัติส่วนตัว</a>
-<a href="activities.html">กิจกรรม</a>
-<a href="certificates.html">เกียรติบัตร</a>
-<a href="contact.html">ช่องทางการติดต่อ</a>
+    let star=document.createElement("div");
+    star.className="star";
+
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*-100+"vh";
+
+    let size=Math.random()*4+2;
+    star.style.width=size+"px";
+    star.style.height=size+"px";
+
+    star.style.animationDuration=(Math.random()*4+2)+"s";
+    star.style.animationDelay=Math.random()*5+"s";
+
+    document.body.appendChild(star);
+}
+</script>
+
 </body>
-
 </html>
